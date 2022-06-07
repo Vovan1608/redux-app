@@ -1,5 +1,7 @@
 import './App.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { addCashAction, getCashAction } from './store/cashReducer';
+import { addCustomerAction, deleteCustomerAction } from './store/customerReducer';
 
 function App() {
     const dispatch = useDispatch();
@@ -7,17 +9,11 @@ function App() {
     const customers = useSelector(state => state.customers.customers);
 
     const addCash = (cash) => {
-        dispatch({ 
-            type: 'ADD_CASH', 
-            payload: cash
-        });
+        dispatch(addCashAction(cash));
     };
 
     const getCash = (cash) => {
-        dispatch({ 
-            type: 'GET_CASH', 
-            payload: cash
-        });
+        dispatch(getCashAction(cash));
     };
 
     const addCustomer = (name) => {
@@ -26,17 +22,11 @@ function App() {
             id: Date.now()
         };
 
-        dispatch({
-            type: 'ADD_CUSTOMER',
-            payload: customer
-        });
+        dispatch(addCustomerAction(customer));
     };
 
     const deleteCustomer = (customer) => {
-        dispatch({
-            type: 'DELETE_CUSTOMER',
-            payload: customer.id
-        });
+        dispatch(deleteCustomerAction(customer.id));
     };
 
     return (

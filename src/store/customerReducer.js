@@ -17,3 +17,7 @@ export const customerReducer = (state = defaultState, action) => {
             return state;
     }
 };
+
+
+export const addCustomerAction = (payload) => ({ type: ADD_CUSTOMER, payload });
+export const deleteCustomerAction = (payload) => ({ type: DELETE_CUSTOMER, payload });
